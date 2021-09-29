@@ -10,7 +10,7 @@ Det kommer också finnas en motivation sytem  där olika actions har större ell
 Det kommer också finnas en social link system där man måste hålla upp sina relationer med Piggy och Jack så att de gör det man säger åt dem och få bonus.
 
 Man kan kalla möten varje kväll och välja vem man ska stötta. Piggy eller Jack.
-Efter möten har man två dagar på sig att göra det karaktären sa under den möten annars sänker social linken mellan dig och den karaktären och moralen sänker. 
+Efter möten har man två dagar på sig att göra det karaktären sa under den möten annars sänker social linken mellan dig och den karaktären och moralen sänker.  
 
 ## Scenarios
 
