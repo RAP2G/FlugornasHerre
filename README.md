@@ -21,7 +21,7 @@ Efter möten har man två dagar på sig att göra det karaktären sa under den m
 - Accidentally light the forest on fire
 - Jack hunts and the fire gets put out
 - Fire gets put out because the twins see the beastie
-- No food for 2 days. Start eating the Littluns
+- No food for 2 days. Start eating the Littluns or Piggy
 
 ## Logbok
 
@@ -32,3 +32,7 @@ Idag har vi skapat en GitHub repo och börjat diskutera idéer.
 __2021-09-29:__
 
 Idag har vi börjat planera ut hur vår spel kommer se ut. Gameplay mechanics, och stroy beats.
+
+__2021-09-30:__
+
+Idag har vi börjat koda hur dagarna kommer gå förbi och hur dagarna kommer vara uppbygda.
