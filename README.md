@@ -15,13 +15,14 @@ Efter möten har man två dagar på sig att göra det karaktären sa under den m
 ## Scenarios
 
 - Stone Piggy
-- Go hunting  
-- Keep the fire going  
+- Go hunting  (Day 10)
 - Littlun saw the beastie
 - Accidentally light the forest on fire
-- Jack hunts and the fire gets put out
+- Jack hunts and the fire gets put out (Day 9) You can pervent it by tending to the fire
 - Fire gets put out because the twins see the beastie
 - No food for 2 days. Start eating the Littluns or Piggy
+- Hunt the beast(Separate While loop)
+- Link the fire (If you are depressed and fire is good you can do it) Secret ending
 
 ## Logbok
 
@@ -36,3 +37,7 @@ Idag har vi börjat planera ut hur vår spel kommer se ut. Gameplay mechanics, o
 __2021-09-30:__
 
 Idag har vi börjat koda hur dagarna kommer gå förbi och hur dagarna kommer vara uppbygda.
+
+__2021-10-05:__
+
+Idag har vi fortsatt skirva funktioner för händleser i spelet

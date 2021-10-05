@@ -1,4 +1,3 @@
-global game
 game = True
 fire = 100
 fruit = 1000
@@ -6,6 +5,41 @@ food = 0
 pigs = 10
 day = 1
 day_time = 1
+boys = 18
+shelter_progress = 0
+shelters = 0
+
+
+def gather():
+    global food
+    print(food)
+
+
+def hunt():
+    pass
+
+
+def tend():
+    global fire
+    print("You tend to the fire")
+    fire += 5
+
+
+def skip():
+    print("You don't do anything and time passes by")
+
+
+def build():
+    global shelter_progress
+    global shelters
+    if shelter_progress == 0:
+        print("Started")
+    elif shelter_progress == 1:
+        print("Kinda done")
+    elif shelter_progress == 2:
+        print("done")
+        shelter_progress = 0
+        shelters = 1
 
 
 def morning():
@@ -23,10 +57,13 @@ def morning():
          """)
     else:
         print(f"We have been here for {day} days")
+        print("""
+            You wake up and ponder to your self. What to do today?
+        """)
 
     choice = input()
+    global game
     if choice == "end":
-        global game
         game = False
     elif choice == "FOOD":
         gather()
@@ -34,7 +71,11 @@ def morning():
 
 def noon():
     print("noon")
-    choice = input()
+    print("""
+        The sun is at its apex now it is very hot and everyone is just loitering around. 
+        You think that this time could be spent more effectively. 
+    """)
+    choice = input("What should the other boys do?")
     if choice == "end":
         global game
         game = False
@@ -44,6 +85,11 @@ def noon():
 
 def evening():
     print("evening")
+    print("""
+        The sun is setting now. The boys have started bathing in the pool. 
+        This  a nice time for a
+    
+    """)
     choice = input()
     if choice == "end":
         global game
@@ -52,12 +98,9 @@ def evening():
         gather()
 
 
-def gather():
-    print(food)
-    day_time
-
-
-while(game):
+def normal_day():
+    global day_time
+    global day
     if day_time == 1:
         morning()
         day_time += 1
@@ -68,3 +111,10 @@ while(game):
         evening()
         day_time = 1
         day += 1
+
+
+while(game):
+    if day == 9:
+        pass
+    else:
+        normal_day()
