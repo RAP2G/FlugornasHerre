@@ -1,3 +1,7 @@
+# Imports
+import time
+
+
 game = True
 fire = 100
 fruit = 1000
@@ -55,6 +59,8 @@ def morning():
                     No instructions[SKIP]                 
 
          """)
+    elif day == 9:
+        pass
     else:
         print(f"We have been here for {day} days")
         print("""
@@ -113,8 +119,19 @@ def normal_day():
         day += 1
 
 
+def jack_goes_hunting():
+    morning()
+    print(""" 
+        You notice somthing along the horizon. It looks like a boat.
+    """)
+    time.sleep(2)
+    print("""
+            You look over to where the fire is suposed to be, but you see no smoke coming from the foor of the mountin.
+    """)
+
+
 while(game):
     if day == 9:
-        pass
+        jack_goes_hunting()
     else:
         normal_day()
