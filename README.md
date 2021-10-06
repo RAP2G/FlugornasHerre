@@ -41,3 +41,7 @@ Idag har vi börjat koda hur dagarna kommer gå förbi och hur dagarna kommer va
 __2021-10-05:__
 
 Idag har vi fortsatt skirva funktioner för händleser i spelet
+
+__2021-10-06:__
+
+Idag har vi startat skapa ett evnet där jack gå och jagar.
