@@ -12,17 +12,28 @@ Det kommer också finnas en social link system där man måste hålla upp sina r
 Man kan kalla möten varje kväll och välja vem man ska stötta. Piggy eller Jack.
 Efter möten har man två dagar på sig att göra det karaktären sa under den möten annars sänker social linken mellan dig och den karaktären och moralen sänker.  
 
+Man kan bara vinna om man håller elden vid liv på dag 9. Annars så är spelet bara ett förlängt interaktiv game over screen.
+
 ## Scenarios
 
-- Stone Piggy
+- Stone Piggy (Predetrmined event)
 - Go hunting  (Day 10)
-- Littlun saw the beastie
-- Accidentally light the forest on fire
+- Littlun saw the beastie (Day 9 evening)
+- Accidentally light the forest on fire(Part of the Day one Synopsis)
 - Jack hunts and the fire gets put out (Day 9) You can pervent it by tending to the fire
-- Fire gets put out because the twins see the beastie
-- No food for 2 days. Start eating the Littluns or Piggy
+- No food for 2 days. Start eating the Littluns or Piggy(maybe)
 - Hunt the beast(Separate While loop)
 - Link the fire (If you are depressed and fire is good you can do it) Secret ending
+
+## Den Förlängda Interactiva Game Over Skärmen
+
+- Fire gets put out because the twins see the beastie
+- Go Hunt the beastie
+- Find it
+- Jack breaks away
+- Jack holds a feast and Simon dies
+- Ralph, Piggy and the Twins go and tell JAck whats what
+- Piggy gets hit by a huge stone and falls into the ocean and dies
 
 ## Logbok
 
