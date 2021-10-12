@@ -1,31 +1,30 @@
 # FlugornasHerre
 
-## Om projektet
+## About the project
 
 Vi tänker skapa ett spel som är stort sett inspirerat av boken Flugornas Herre.
-Den kommer vara en recource manegement spel. Där man behöver balancera olika recources som mat, eld och moral.  
+Där man behöver balancera olika recources som mat och eld.  
 
-Det kommer också finnas en motivation sytem  där olika actions har större eller lägre chans att klaras beroende på motivationen. Det kommer komma vid början av varje action ett scenario där man behöver välja vad man ska göra och beroende på valet så kan det förändra vad som kommer hända.  
+## Ideas
+
+Man kan kalla möten varje kväll och välja vem man ska stötta. Piggy eller Jack.
+Efter möten har man två dagar på sig att göra det karaktären sa under den möten annars sänker social linken mellan dig och den karaktären och moralen sänker.
 
 Det kommer också finnas en social link system där man måste hålla upp sina relationer med Piggy och Jack så att de gör det man säger åt dem och få bonus.
 
-Man kan kalla möten varje kväll och välja vem man ska stötta. Piggy eller Jack.
-Efter möten har man två dagar på sig att göra det karaktären sa under den möten annars sänker social linken mellan dig och den karaktären och moralen sänker.  
-
-Man kan bara vinna om man håller elden vid liv på dag 9. Annars så är spelet bara ett förlängt interaktiv game over screen.
+Det kommer också finnas en motivation sytem  där olika actions har större eller lägre chans att klaras beroende på motivationen. Det kommer komma vid början av varje action ett scenario där man behöver välja vad man ska göra och beroende på valet så kan det förändra vad som kommer hända.  
 
 ## Scenarios
 
-- Stone Piggy (Predetrmined event)
 - Go hunting  (Day 10)
 - Littlun saw the beastie (Day 9 evening)
 - Accidentally light the forest on fire(Part of the Day one Synopsis)
-- Jack hunts and the fire gets put out (Day 9) You can pervent it by tending to the fire
-- No food for 2 days. Start eating the Littluns or Piggy(maybe)
+- Jack hunts and the fire gets put out (Day 9) You can prevent it by tending to the fire
 - Hunt the beast(Separate While loop)
 - Link the fire (If you are depressed and fire is good you can do it) Secret ending
+- The "Beast" is killed (Simon death scene)
 
-## Den Förlängda Interactiva Game Over Skärmen
+## The Last 2 Days
 
 - Fire gets put out because the twins see the beastie
 - Go Hunt the beastie
@@ -34,6 +33,9 @@ Man kan bara vinna om man håller elden vid liv på dag 9. Annars så är spelet
 - Jack holds a feast and Simon dies
 - Ralph, Piggy and the Twins go and tell JAck whats what
 - Piggy gets hit by a huge stone and falls into the ocean and dies
+- Ralph joins the savages and kills piggy (bad end)
+- Good and bad endings available
+- True ending (book ending)
 
 ## Logbok
 
@@ -53,6 +55,8 @@ __2021-10-05:__
 
 Idag har vi fortsatt skirva funktioner för händleser i spelet
 
-__2021-10-06:__
+__2021-10-12:__
 
-Idag har vi startat skapa ett evnet där jack gå och jagar.
+Idag har vi startat skapa ett eventet där Jack kan gå och jaga ifall man inte fixar till elden på morgonen för då vinner man spelet. Vi har fixat till endings och vi har gjort vår kod mer läsbar. Ossian förare ca halva tiden. Soma förare ca halva tiden
+
+__2021-10-13:__

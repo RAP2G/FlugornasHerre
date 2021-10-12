@@ -1,32 +1,43 @@
 # Imports
 import time
+import random
+import math
 
 
 game = True
+can_hunt = False
+jack_can_hunt = True
 fire = 100
-fruit = 1000
 food = 0
-pigs = 10
-day = 1
+day = 9
 day_time = 1
 boys = 18
 shelter_progress = 0
 shelters = 0
+ending_type = ""
+days_starving = 0
 
 
 def gather():
     global food
-    print(food)
+    food += 1
+    print("You went and gathered some fruits from the trees and bushes")
 
 
 def hunt():
-    pass
+    global food
+    success = random.randrange(1, 10)
+    if success < 6:
+        print("The hunt failed and the pig escaped")
+    else:
+        print("The hunt succeded, time for a feast")
+        food += 2
 
 
 def tend():
     global fire
     print("You tend to the fire")
-    fire += 5
+    fire += 10
 
 
 def skip():
@@ -46,11 +57,47 @@ def build():
         shelters = 1
 
 
+def input_handler():
+    while True:
+        choice = input().upper()
+        global game
+        global ending_type
+        global jack_can_hunt
+        if choice == "END":
+            quit()
+        elif choice == "FOOD":
+            gather()
+            break
+        elif day == 9 and choice == "FIRE":
+            jack_can_hunt = False
+            game = False
+            ending_type = "good"
+            break
+        elif choice == "FIRE":
+            tend()
+            break
+        elif choice == "SKIP":
+            skip()
+            break
+        elif day > 9 or day < 15 and choice == "HUNT":
+            hunt()
+            break
+        elif choice == "BUILD":
+            build()
+            break
+        elif day == 16 and choice == "LINK THE FIRE":
+            game = False
+            ending_type = "good"
+
+        else:
+            continue
+
+
 def morning():
     if day == 1:
         print("""
             You wake up after yesterday's meating. All the boys are stadnding around you.
-            The moment the ysee that you have woken up, they ask you:
+            The moment they see that you have woken up, they ask you:
                 What should we do?
 
                     Build shelters[BUILD]
@@ -59,20 +106,13 @@ def morning():
                     No instructions[SKIP]                 
 
          """)
-    elif day == 9:
-        pass
+
     else:
         print(f"We have been here for {day} days")
         print("""
             You wake up and ponder to your self. What to do today?
         """)
-
-    choice = input()
-    global game
-    if choice == "end":
-        game = False
-    elif choice == "FOOD":
-        gather()
+    input_handler()
 
 
 def noon():
@@ -81,27 +121,31 @@ def noon():
         The sun is at its apex now it is very hot and everyone is just loitering around. 
         You think that this time could be spent more effectively. 
     """)
-    choice = input("What should the other boys do?")
-    if choice == "end":
-        global game
-        game = False
-    elif choice == "FOOD":
-        gather()
+    input_handler()
 
 
 def evening():
+    global food
+    global fire
+    global game
+    global days_starving
     print("evening")
+    # give the player the option to link the fire
     print("""
         The sun is setting now. The boys have started bathing in the pool. 
-        This  a nice time for a
+        This a nice time for an assembly 
     
     """)
-    choice = input()
-    if choice == "end":
-        global game
-        game = False
-    elif choice == "FOOD":
-        gather()
+    input_handler()
+    if food == 0:
+        days_starving += 1
+        if days_starving == 3:
+            game = False
+            ending_type == "bad"
+    else:
+        days_starving == 0
+    food -= 1
+    fire -= 20
 
 
 def normal_day():
@@ -120,18 +164,64 @@ def normal_day():
 
 
 def jack_goes_hunting():
-    morning()
     print(""" 
         You notice somthing along the horizon. It looks like a boat.
     """)
     time.sleep(2)
     print("""
-            You look over to where the fire is suposed to be, but you see no smoke coming from the foor of the mountin.
+            You look over to where the fire is suposed to be, but you see no smoke coming from the foot of the mountain.
     """)
+
+
+def good_ending():
+    if day == 9:
+        print("Because you tended to the fire, a nearby ship saw the smoke and came to your rescue")
+        # boat rescue
+    elif day == 17:
+        print("""
+        In your lowest monent you diced to end it all and rekindle the fire. You stand up and throw yourself into the flames. 
+        By offering your soul the age of fire is prolonged and a ship sees the smoke coming from the First Flame. You may have died 
+        but you companions survive due to you noble sacrifce.
+        """)
+        # "Linking the fire"
+    else:
+        print("You won. yay...")
+        # True ending
+
+
+def bad_ending():
+    if day < 18:
+        # general bad endings'
+        if days_starving == 3:
+            print("You were out of food for too long and you starved to death")
+        if day == 14:
+            print(
+                "There was a big storm and because you had no shelters you froze to death")
 
 
 while(game):
     if day == 9:
-        jack_goes_hunting()
+        morning()
+        if jack_can_hunt:
+            jack_goes_hunting()
+    elif day == 14:
+        if shelters < 1:
+            game = False
+            ending_type = "bad"
+        else:
+            normal_day()
+    elif day == 15:
+        pass  # Bestie hunt then Simon gets killed
+    elif day == 16:
+        pass  # normal day but you can "Link the Fire"
+    elif day == 18:
+        pass  # Second to lastday
+    elif day == 19:
+        pass  # Last day
     else:
         normal_day()
+else:
+    if ending_type == "good":
+        good_ending()
+    elif ending_type == "bad":
+        bad_ending()
