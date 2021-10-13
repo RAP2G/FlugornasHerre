@@ -60,3 +60,5 @@ __2021-10-12:__
 Idag har vi startat skapa ett eventet där Jack kan gå och jaga ifall man inte fixar till elden på morgonen för då vinner man spelet. Vi har fixat till endings och vi har gjort vår kod mer läsbar. Ossian förare ca halva tiden. Soma förare ca halva tiden
 
 __2021-10-13:__
+
+Idag har vi programmerat in vår Dark Souls Easter Egg ending i vår spel. 
