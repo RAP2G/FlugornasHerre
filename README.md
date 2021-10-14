@@ -61,4 +61,8 @@ Idag har vi startat skapa ett eventet där Jack kan gå och jaga ifall man inte 
 
 __2021-10-13:__
 
-Idag har vi programmerat in vår Dark Souls Easter Egg ending i vår spel. 
+Idag har vi programmerat in vår Dark Souls Easter Egg ending i vår spel.
+
+__2021-10-13:__
+
+Idag har vi fixat till så att "hunt" eventet fungerar korrekt och påbörjat "beastie" eventet
