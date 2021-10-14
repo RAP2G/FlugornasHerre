@@ -142,9 +142,10 @@ def morning():
 
 def noon():
     print("noon")
-    print("""
+    print(f"""
         The sun is at its apex now it is very hot and everyone is just loitering around. 
         You think that this time could be spent more effectively. 
+                    {instructions}
     """)
 
     input_handler()
@@ -162,9 +163,10 @@ def evening():
             {link_fire_night_dialoge}
         """)
     elif day < 15:
-        print("""
+        print(f"""
              The boys have started bathing in the pool. 
-            This a nice time for an assembly 
+            This a nice time for an assembly
+            {instructions}
         
         """)
     input_handler()
@@ -210,6 +212,23 @@ def jack_goes_hunting():
     instructions = instructions_hunt
 
 
+def day_of_the_splitup():
+
+    print("you go and hunt the beastie because the twins saw it last night")
+    time.sleep(2)
+    print("you look around the south end of the Island, opposite to the mountain")
+    time.sleep(2)
+    print("You don't find anything there jsut a cool castlelike rckformation next to the sea")
+    time.sleep(2)
+    print("You decide to look for the beastie at the mountain where the fire is")
+    time.sleep(2)
+    print("you arrive at foot of the mountain but the time is getting late.")
+    time.sleep(2)
+    print("The wind is filled with the ash of the burnt forest from the first night")
+    time.sleep(2)
+    print("JAck asks you if you want to follow yes/no")
+
+
 def good_ending():
     if day == 9:
         print("Because you tended to the fire, a nearby ship saw the smoke and came to your rescue")
@@ -241,13 +260,14 @@ while(game):
         morning()
         if jack_can_hunt:
             jack_goes_hunting()
-    elif day == 14:
+    elif day == 13:
         if shelters < 1:
             game = False
             ending_type = "bad"
         else:
             normal_day()
     elif day == 15:
+        instructions = instructions_normal
         pass  # Bestie hunt then Simon gets killed
     elif day == 18:
         pass  # Second to lastday
@@ -255,7 +275,6 @@ while(game):
         pass  # Last day
     else:
         normal_day()
-
 else:
     if ending_type == "good":
         good_ending()
