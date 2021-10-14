@@ -3,7 +3,6 @@ import time
 import random
 import math
 
-
 game = True
 can_hunt = False
 jack_can_hunt = True
@@ -11,11 +10,37 @@ fire = 100
 food = 0
 day = 9
 day_time = 1
-boys = 18
 shelter_progress = 0
 shelters = 0
 ending_type = ""
 days_starving = 0
+instructions = ""
+
+# Pre-written Mesages
+instructions_normal = """
+                                Build shelters[BUILD]
+                                Gather food[FOOD]
+                                Tend to the fire[FIRE]
+                                No instructions[SKIP]         
+                                """
+
+instructions_hunt = """
+                                Build shelters[BUILD]
+                                Gather food[FOOD]
+                                Tend to the fire[FIRE]
+                                No instructions[SKIP]
+                                Go hunting[HUNT]         
+                                """
+
+link_fire_night_dialoge = f"""
+            The sun is setting now and you sit down by the fire. You think about where everything went wrong.
+            You look at the fire and the orange flames look quite inviting.
+
+                                {instructions_normal}Link The Fire[LINK]
+
+"""
+
+instructions = instructions_normal
 
 
 def gather():
@@ -61,6 +86,7 @@ def input_handler():
     while True:
         choice = input().upper()
         global game
+        global day_time
         global ending_type
         global jack_can_hunt
         if choice == "END":
@@ -79,15 +105,16 @@ def input_handler():
         elif choice == "SKIP":
             skip()
             break
-        elif day > 9 or day < 15 and choice == "HUNT":
+        elif 9 < day < 15 and choice == "HUNT":
             hunt()
             break
         elif choice == "BUILD":
             build()
             break
-        elif day == 16 and choice == "LINK THE FIRE":
+        elif day == 16 and choice == "LINK":
             game = False
             ending_type = "good"
+            break
 
         else:
             continue
@@ -95,22 +122,20 @@ def input_handler():
 
 def morning():
     if day == 1:
-        print("""
+        print(f"""
             You wake up after yesterday's meating. All the boys are stadnding around you.
             The moment they see that you have woken up, they ask you:
                 What should we do?
 
-                    Build shelters[BUILD]
-                    Gather food[FOOD]
-                    Check the fire[FIRE]
-                    No instructions[SKIP]                 
+                            {instructions}
 
          """)
 
     else:
         print(f"We have been here for {day} days")
-        print("""
+        print(f"""
             You wake up and ponder to your self. What to do today?
+            {instructions}
         """)
     input_handler()
 
@@ -121,6 +146,7 @@ def noon():
         The sun is at its apex now it is very hot and everyone is just loitering around. 
         You think that this time could be spent more effectively. 
     """)
+
     input_handler()
 
 
@@ -131,11 +157,16 @@ def evening():
     global days_starving
     print("evening")
     # give the player the option to link the fire
-    print("""
-        The sun is setting now. The boys have started bathing in the pool. 
-        This a nice time for an assembly 
-    
-    """)
+    if day == 16:
+        print(f"""
+            {link_fire_night_dialoge}
+        """)
+    elif day < 15:
+        print("""
+             The boys have started bathing in the pool. 
+            This a nice time for an assembly 
+        
+        """)
     input_handler()
     if food == 0:
         days_starving += 1
@@ -164,6 +195,9 @@ def normal_day():
 
 
 def jack_goes_hunting():
+    global day
+    global jack_can_hunt
+    global instructions
     print(""" 
         You notice somthing along the horizon. It looks like a boat.
     """)
@@ -171,6 +205,9 @@ def jack_goes_hunting():
     print("""
             You look over to where the fire is suposed to be, but you see no smoke coming from the foot of the mountain.
     """)
+    jack_can_hunt = False
+    day += 1
+    instructions = instructions_hunt
 
 
 def good_ending():
@@ -212,14 +249,13 @@ while(game):
             normal_day()
     elif day == 15:
         pass  # Bestie hunt then Simon gets killed
-    elif day == 16:
-        pass  # normal day but you can "Link the Fire"
     elif day == 18:
         pass  # Second to lastday
     elif day == 19:
         pass  # Last day
     else:
         normal_day()
+
 else:
     if ending_type == "good":
         good_ending()
