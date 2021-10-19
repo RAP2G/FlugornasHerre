@@ -66,3 +66,7 @@ Idag har vi programmerat in vår Dark Souls Easter Egg ending i vår spel.
 __2021-10-13:__
 
 Idag har vi fixat till så att "hunt" eventet fungerar korrekt och påbörjat "beastie" eventet
+
+__2021-10-13:__
+
+Idag har vi gjort klart beastie eventet och påbörjat dem två sista dagarna, vi arbetade separat på dem delarna för att kompensera för tiden arbetet tar.

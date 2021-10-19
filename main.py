@@ -8,7 +8,7 @@ can_hunt = False
 jack_can_hunt = True
 fire = 100
 food = 0
-day = 9
+day = 19
 day_time = 1
 shelter_progress = 0
 shelters = 0
@@ -226,8 +226,115 @@ def day_of_the_splitup():
     time.sleep(2)
     print("The wind is filled with the ash of the burnt forest from the first night")
     time.sleep(2)
-    print("JAck asks you if you want to follow yes/no")
+    print("Jack asks you if you want to follow yes/no")
 
+def Second_to_last_day(): 
+    print("day 18")
+    time.sleep(2)
+    print()
+    time.sleep(2)
+    print()
+    time.sleep(2)
+    print()
+    time.sleep(2)
+    print()
+    time.sleep(2)
+    print()
+    time.sleep(2)
+    print()
+    time.sleep(2)
+    print("The Savages started throwing rocks at piggy, will you join them? ")
+    time.sleep(2)
+    choice = input().lower
+    if choice == "yes" or choice == "ys":
+        global game
+        print()
+        game = False
+        ending_type == "bad"
+    elif choice == "no":
+        print()
+
+    print()
+    time.sleep(2)
+    print()
+    time.sleep(2)
+    print()
+    
+def Last_day():
+    print("day 19")
+    time.sleep(2)
+    print()
+    time.sleep(2)
+    print()
+    time.sleep(2)
+    print()
+    time.sleep(2)
+    print("The savages are about to find you, what will you do")
+    choice = input().lower
+    if choice == "run":
+        time.sleep(2)
+        print("You started running an quickly ran past the savages")
+        time.sleep(2)
+        print("They started running after you but quickly lost sight of you")
+        time.sleep(2)
+        print("The started calling reinforcements")
+        time.sleep(2)
+        print("The savages are closing in again, what will you do this time?")
+        time.sleep(2)
+        choice = input().lower
+        if choice == "run":
+            global game
+            print("You once again ran past the savages")
+            time.sleep(2)
+            print("The savages were faster to react this time and are closing in on you")
+            time.sleep(2)
+            print("You ran into the bushes and they lost sight of you again")
+            time.sleep(2)
+            print("There are many hunters around what will you do this time to escape?")
+            choice = input().lowr
+            if choice == "hide":
+                    print("This time you decided that the wiser choice was to hide")
+                    time.sleep(2)
+                    print("The savages were prepaired for you to run again but were caught off guard when you did not")
+                    time.sleep(2)
+                    print("They searched every nook and cranny around the area but did not manage to find you")
+                    time.sleep(2)
+                    print("The savages left the area embarassed and this gave you the chance to get past their defences")
+            elif choice == "run":
+                print("You started running once again but this time there were to many savages and you did not manage to outrun them")
+                ending_type == "bad"
+                game = False
+            elif choice == "climb":
+                print("You fell from the tree while trying to climb")
+                ending_type == "bad"
+                game = False
+            else:
+                    print("You took too long thinking")
+                    ending_type == "bad"
+                    game = False
+
+        elif choice == "climb":
+            pass
+        elif choice == "hide":
+            pass
+        else:
+            print("You took too long thinking")
+            ending_type == "bad"
+            game = False
+    elif choice == "climb":
+        print("You fell from the tree while trying to climb")
+        ending_type == "bad"
+        game = False
+    elif choice == "hide":
+        print("You did not hide well enough")
+        ending_type == "bad"
+        game = False
+    # else:
+    #     print("You took too long thinking")
+    #     ending_type == "bad"
+    #     game = False
+        
+    
 
 def good_ending():
     if day == 9:
@@ -253,6 +360,12 @@ def bad_ending():
         if day == 14:
             print(
                 "There was a big storm and because you had no shelters you froze to death")
+        if day == 18:
+            print("""You joined the savages and started throwing rocks at Piggy, after a while Piggy lost his balance and fell to his death however you weren't bothered by his death. 
+                     The day after, rescue came for you but the savages did not want to leave the island and thus you attacked your rescuers. 
+                     After that no one tried to save you again and eventually you all starved on the island""")
+        if day == 19:
+            print("The savages catch up to you and put your head on the double edged stick")
 
 
 while(game):
@@ -270,9 +383,13 @@ while(game):
         instructions = instructions_normal
         pass  # Bestie hunt then Simon gets killed
     elif day == 18:
-        pass  # Second to lastday
+        Second_to_last_day()
+        
     elif day == 19:
-        pass  # Last day
+        Last_day()
+        break
+        
+
     else:
         normal_day()
 else:
