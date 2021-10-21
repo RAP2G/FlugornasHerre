@@ -29,36 +29,44 @@ Spelet har många unika avslut och interaktioner
 - Bra och dåliga avslut
 - Sanna avslutet (book ending)
 
+## Credits
+
+    Title by: CryAesthetic.exe
+
 ## Logbok
 
-__2021-09-28:__
+**2021-09-28:**
 
 Idag har vi skapat en GitHub repo och börjat diskutera idéer.
 
-__2021-09-29:__
+**2021-09-29:**
 
 Idag har vi börjat planera ut hur vår spel kommer se ut. Gameplay mechanics, och stroy beats.
 
-__2021-09-30:__
+**2021-09-30:**
 
 Idag har vi börjat koda hur dagarna kommer gå förbi och hur dagarna kommer vara uppbygda.
 
-__2021-10-05:__
+**2021-10-05:**
 
 Idag har vi fortsatt skirva funktioner för händleser i spelet
 
-__2021-10-12:__
+**2021-10-12:**
 
 Idag har vi startat skapa ett eventet där Jack kan gå och jaga ifall man inte fixar till elden på morgonen för då vinner man spelet. Vi har fixat till endings och vi har gjort vår kod mer läsbar. Ossian förare ca halva tiden. Soma förare ca halva tiden
 
-__2021-10-13:__
+**2021-10-13:**
 
 Idag har vi programmerat in vår Dark Souls Easter Egg ending i vår spel.
 
-__2021-10-13:__
+**2021-10-19:**
 
 Idag har vi fixat till så att "hunt" eventet fungerar korrekt och påbörjat "beastie" eventet
 
-__2021-10-13:__
+**2021-10-20:**
 
 Idag har vi gjort klart beastie eventet och påbörjat dem två sista dagarna, vi arbetade separat på dem delarna för att kompensera för tiden arbetet tar.
+
+**2021-10-21:**
+
+Idag har vi gjort klar jack_goes_hunting och last_day eventet. Vi har second_to_last_day eventet kvar att göra.
