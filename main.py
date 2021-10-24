@@ -10,7 +10,7 @@ can_hunt = False
 jack_can_hunt = True
 fire = 100
 food = 0
-day = 19
+day = 1
 day_time = 1
 shelter_progress = 0
 shelters = 0
@@ -45,59 +45,59 @@ link_fire_night_dialogue = f"""
 
 """
 
+
 instructions = instructions_normal
 
 
 def gather():
     global food
     food += 1
-    print("You went and gathered some fruits from the trees and bushes")
+    input("You went and gathered some fruits from the trees and the bushes")
 
 
 def hunt():
     global food
     success = random.randrange(1, 10)
     if success < 6:
-        print("The hunt failed and the pig escaped")
+        input("The hunt failed and the pig escaped")
     else:
-        print("The hunt succeeded, time for a feast")
+        input("The hunt succeeded, time for a feast")
         food += 2
 
 
 def tend():
     global fire
-    print("You tend to the fire")
+    input("You tend to the fire")
     fire += 10
 
 
 def skip():
-    print("You don't do anything and time passes by")
+    input("You don't do anything and time passes by")
 
 
 def build():
     global shelter_progress
     global shelters
     if shelter_progress == 0:
-        print("Started")
+        input("You and some other boys start bulding a shelter")
     elif shelter_progress == 1:
-        print("Kinda done")
+        input("You continue building shelter.")
     elif shelter_progress == 2:
-        print("done")
+        input("You add the final touches to the shelter.")
+        input("It's finally done.")
         shelter_progress = 0
-        shelters = 1
+        shelters += 1
 
 
 def stat_check():
-    print("")
-    print(f"Food: {food}")
+    print(f"\nFood: {food}")
     print(f"Fire: {fire}")
     print(f"Shelters: {shelters}")
-    print(f"Shelter build progress: {shelter_progress}")
+    print(f"Shelter build progress: {shelter_progress}\n")
 
 
 def change_day():
-    global day
-    global day_time
+    global day, day_time
     day = int(input("Which day do you want to skip to?"))
     day_time = 1
 
@@ -105,10 +105,7 @@ def change_day():
 def input_handler():
     while True:
         choice = input("\n").upper()
-        global game
-        global day_time
-        global ending_type
-        global jack_can_hunt
+        global game, day_time, ending_type, jack_can_hunt
         if choice == "END":
             quit()
         elif choice == "FOOD":
@@ -165,20 +162,24 @@ def morning():
 
 
 def noon():
-    print(f"""
-        The sun is at its apex now it is very hot and everyone is just loitering around. 
-        You think that this time could be spent more effectively. 
-                    {instructions}
-    """)
-
+    if day < 15:
+        print(f"""
+            The sun is at its apex now it is very hot and everyone is just loitering around. 
+            You think that this time could be spent more effectively. 
+                        {instructions}
+        """)
+    elif day >= 15:
+        print(f"""
+            The sun is at its apex now and it is scorching hot.
+            But this can't hinder you. There should be somthing to be done.
+                        {instructions}
+        
+        """)
     input_handler()
 
 
 def evening():
-    global food
-    global fire
-    global game
-    global days_starving
+    global food, fire, game, days_starving, ending_type
     if day == 16:
         print(f"""
             {link_fire_night_dialogue}
@@ -191,20 +192,23 @@ def evening():
         
         """)
     elif day >= 15:
-        pass
+        print(f"""
+            The sun is setting but there should still be time for one more thing.
+            {instructions}
+        """)
     input_handler()
     if food == 0:
         days_starving += 1
         if days_starving == 3:
             game = False
-            ending_type == "bad"
+            ending_type = "bad"
     else:
         days_starving == 0
-    food -= 1
-    if fire > 20:
+        food -= 1
+    if fire >= 20:
         fire -= 20
     else:
-        fire = fire-fire
+        fire -= 10
 
 
 def normal_day():
@@ -223,9 +227,7 @@ def normal_day():
 
 
 def jack_goes_hunting():
-    global day
-    global jack_can_hunt
-    global instructions
+    global day, jack_can_hunt, instructions, day_time
     input(""" 
         You notice somthing along the horizon. It looks like a boat.\n
     """)
@@ -255,14 +257,16 @@ def jack_goes_hunting():
     ''')
     input("When they calm down a bit you say: You let the fire go out.")
     input("You also tell them that a ship passed by.")
+    input("The boys quiet down.")
     input("Everyone feels down so you wait with giving them orders until tomorrow.")
     jack_can_hunt = False
     day += 1
+    day_time = 1
     instructions = instructions_hunt
 
 
 def day_of_the_splitup():
-
+    global instructions, day, day_time
     input("you go and hunt the beastie because the twins saw it last night")
     input("you look around the south end of the Island, opposite to the mountain")
     input("You don't find anything there just a cool castlelike rockmation next to the sea")
@@ -272,15 +276,26 @@ def day_of_the_splitup():
     print("Jack asks you if you want to follow yes/no")
     choice = input().lower()
     if choice == "yes" or choice == "ys":
-        input("You follow jack up the mountain. The ash in the wind hurts your eyes but you push through.")
-        input("When you get on the top of the mountain ")
+        input("You follow Jack up the mountain. The ash in the wind hurts your eyes but you push through.")
+        input("When you get on the top of the mountain you sea a man twisted in his parachute.")
+        input("Knowing what the beast was you start climbing of the mountain.")
+        input("When you get to the foot of the mountain and meet up with the rest of the group Jack suddenly yells.")
+        input("I had enough of Ralph's incompetent leadership.")
+        input("I am starting my own tribe. Who want's to join?")
+        input("Almost all of the boys put up their hands.")
+        input("This caches you by surprise and you don't know what to say.")
+        input("We will have a feast tonight to celebrate the creation of my new tribe")
+        input("And for those who had not made up their minds yet.")
+        input("You guys can still come to the feast. Everyone is welcome!")
+        input("And before you realise all of the boys have gone of with Jack")
+
     elif choice == "no":
         input("You decide to stay")
         input("Jack comes back. He says he killed the beast and accuses you of being unfit to be their leader.")
         input("He tells the other boy that if they want a better leader, they should follow him.")
-        input("Then he says that he's going to have a feast and everyone id welcome there")
-        input("You get back to Piggy and the twins and tell them what has happened")
-        input("They can't believe what you've told them")
+        input("Then he says that he's going to have a feast and everyone is welcome there")
+    input("You get back to Piggy and the twins and tell them what has happened")
+    input("They can't believe what you've told them")
     input("It is getting late you and you companions are getting hungry")
     print("Do you want to go to the feast yes/no")
     choice = input().lower()
@@ -295,86 +310,122 @@ def day_of_the_splitup():
         input("You join in.")
         input("After a while a black hairy beast comes out of the forest and enters the ring of dancing boys.")
         input("The boys start stabbing at the beast with their spears.")
+        input("You catch a glimpse of the face of the beast.")
+        input("It looks like Simon.")
+        input("Suddenly the beast cries out in pain and runs toward the ocean.")
+        input("After that nither the beast nor Simon is ever seen again.")
     elif choice == "no":
         input("You decide not to go to the feast")
         input("It is getting late so you decide to go to sleep")
         input("On your way to the shelters Piggy comes to you and tells you that Simon has been missing all day and he hasn't come back yet")
         input("You tell Piggy not to worry and go to sleep")
         time.sleep(5)
-        input("But Simon never came back")
+        input("But Simon never came back\n")
+    day += 1
+    day_time = 1
+    instructions = instructions_normal
 
 
 def Second_to_last_day():
-    print("day 18")
-    print("The Savages started throwing rocks at piggy, will you join them? ")
+    global day, ending_type
+    input("Last night the savages came by and took Piggy's glasses")
+    input("Piggy, the twins and you decide to go to where the savages are and try to talk some sense into them.")
+    input("Piggy picks up the conch and everyone starts walking toward the hideout of the savages")
+    input("Jack comes out with the rest of the tribe behind him")
+    input("Piggy goes forward and starts talking to them, but they don't seem to be listening")
+    input("Suddenly a savage throws a stone at Piggy. Soon after the rest of the tribe joins in.")
+    print("Will you join them? ")
     choice = input().lower()
     if choice == "yes" or choice == "ys":
         global game
-        print()
         game = False
-        ending_type == "bad"
+        ending_type = "bad"
     elif choice == "no":
+        input("You decide not to join in.")
+        input("After a while the stoning stops and you think this was it.")
+        input("But out of nowhere a giant boulder comes rolling towards Piggy.")
+        input("Piggy gets hit by the rock and falls into the ocean.")
+        input("Don't know what to do.")
+        input("So you just run away, leaving the twins in the hands of the savages")
+        time.sleep(3)
         print()
+        time.sleep(3)
+        print()
+        time.sleep(3)
+        print()
+        time.sleep(1)
+        input("It's getting late now.")
+        input("You wonder what's happened to the twins.")
+        input("You go back to the Savage Hideout")
+        input("When you get close you see that two people are guarding the entrance")
+        input("It must be the twins")
+        input("You walk up to them and ask how they have been doing.")
+        input("They inform you that they have been treated well")
+        input("But they have som bad news for you.")
+        input('Jack is planing to hunt you and use a "double edged stick"')
+        input("You tell them not to worry and sya good bye")
+        input("You decide that hiding in the tall grass near the hiedout is the best idea")
+        input("You walk there lie down and go to sleep\n")
+        day += 1
 
 
 def Last_day():
     global game
     global last_choice
     global ending_type
-    print("day 19")
-    print("The savages are about to find you, what will you do")
+    input("You wake up in the tall grass to the sound of the ululation of the savages.")
+    input("You run away and hide.")
+    print("But after a while you can hear the savages closing in. What will you do?")
     while last_choice < 3:
-        choice = input().upper()
-        print(choice)
+        choice = input("run[RUN] climb[CLIMB] or hide[HIDE]\n").upper()
         if choice == "RUN":
 
             if last_choice == 0:
-                print("You started running an quickly ran past the savages")
-                print("They started running after you but quickly lost sight of you")
-                print("The started calling reinforcements")
+                input("You started running an quickly ran past the savages")
+                input("They started running after you but quickly lost sight of you")
+                input("They have called in reinforcements")
                 print("The savages are closing in again, what will you do this time?")
             elif last_choice == 1:
-                print("You once again ran past the savages")
-                print(
-                    "The savages were faster to react this time and are closing in on you")
-                print("You ran into the bushes and they lost sight of you again")
+                input("You once again ran past the savages")
+                input(
+                    "The savages were faster to react this time and are closing in on you once more")
+                input("You ran into the bushes and they lose sight of you again")
                 print(
                     "There are many hunters around what will you do this time to escape?")
             elif last_choice == 2:
                 print(
                     "You started running once again but this time there were to many savages and you did not manage to outrun them")
-                ending_type == "bad"
+                ending_type = "bad"
                 game = False
                 break
             last_choice += 1
         elif choice == "CLIMB":
             print("You fell from the tree while trying to climb")
-            ending_type == "bad"
+            ending_type = "bad"
             game = False
             break
         elif choice == "HIDE":
             if last_choice == 2:
-                print("This time you decided that the wiser choice was to hide")
-                print(
+                input("This time you decided that the wiser choice was to hide")
+                input(
                     "The savages were prepaired for you to run again but were caught off guard when you did not")
-                print(
+                input(
                     "They searched every nook and cranny around the area but did not manage to find you")
-                print(
+                input(
                     "The savages left the area embarrassed and this gave you the chance to get past their defences")
                 ending_type = "good"
                 game = False
                 break
             else:
                 print("You did not hide well enough and the savages find you")
-                ending_type == "bad"
+                ending_type = "bad"
                 game = False
                 break
-            last_choice += 1
 
         else:
             print("You took too long thinking")
 
-            ending_type == "bad"
+            ending_type = "bad"
             game = False
 
 
@@ -384,7 +435,7 @@ def good_ending():
         # boat rescue
     elif day == 17:
         print("""
-        In your lowest moment you diced to end it all and rekindle the fire. You stand up and throw yourself into the flames. 
+        In your lowest moment you decide to end it all and rekindle the fire. You stand up and throw yourself into the flames. 
         By offering your soul the age of fire is prolonged and a ship sees the smoke coming from the First Flame. You may have died 
         but you companions survive due to you noble sacrifice.
         """)
@@ -403,18 +454,27 @@ def bad_ending():
         # general bad endings'
         if days_starving == 3:
             print("You were out of food for too long and you starved to death")
-        if day == 14:
+        elif day == 13:
             print(
                 "There was a big storm and because you had no shelters you froze to death")
-        if day == 18:
-            print("""You joined the savages and started throwing rocks at Piggy, after a while Piggy lost his balance and fell to his death however you weren't bothered by his death. 
+        elif day == 18:
+            print("""You joined the savages and started throwing rocks at Piggy, after a while he lost his balance and fell to his death however you weren't bothered by that. 
                      The day after, rescue came for you but the savages did not want to leave the island and thus you attacked your rescuers. 
                      After that no one tried to save you again and eventually you all starved on the island""")
-        if day == 19:
+        elif day == 19:
             print(
                 "The savages catch up to you and put your head on the double edged stick")
 
 
+if day == 1:
+    input("""
+    
+    
+    
+    
+            Press ENTER to continue
+
+    """)
 while(game):
     if day == 9:
         morning()
@@ -430,7 +490,6 @@ while(game):
         instructions = instructions_normal
         day_of_the_splitup()
     elif day == 18:
-        morning()
         Second_to_last_day()
 
     elif day == 19:
