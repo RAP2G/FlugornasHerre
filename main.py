@@ -80,8 +80,10 @@ def build():
     global shelters
     if shelter_progress == 0:
         input("You and some other boys start bulding a shelter")
+        shelter_progress += 1
     elif shelter_progress == 1:
         input("You continue building shelter.")
+        shelter_progress += 1
     elif shelter_progress == 2:
         input("You add the final touches to the shelter.")
         input("It's finally done.")
