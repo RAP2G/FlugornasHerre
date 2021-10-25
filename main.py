@@ -468,11 +468,15 @@ def bad_ending():
 
 if day == 1:
     input("""
-    
-    
-    
-    
-            Press ENTER to continue
+
+        Yesterday you and some other boys got stranded on an island. First you met a fat boy named Piggy. The two of you found a conch.
+        You blew into the conch, which made a loud noise that could be heard all over the island. After a short while, boys started 
+        coming your way, because they heard the sound of the conch. When no more boys were coming, you and the others decided to hold 
+        an assembly. On this assembly the group decied that you will be their chief. A boy called Jack volunteered himself and the 
+        choir he was leading to be hunters. This concluded the assembly. The sun was setting. You decided to go to sleep after this long day.
+
+
+                                                        Press ENTER to continue
 
     """)
 while(game):
