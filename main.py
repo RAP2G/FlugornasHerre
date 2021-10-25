@@ -1,7 +1,6 @@
 # Imports
 import time
 import random
-import math
 
 
 # Variables
@@ -45,8 +44,9 @@ link_fire_night_dialogue = f"""
 
 """
 
-
 instructions = instructions_normal
+
+# Functions for Player Actions
 
 
 def gather():
@@ -95,11 +95,15 @@ def stat_check():
     print(f"Shelters: {shelters}")
     print(f"Shelter build progress: {shelter_progress}\n")
 
+# Devfeature
+
 
 def change_day():
     global day, day_time
     day = int(input("Which day do you want to skip to?"))
     day_time = 1
+
+# Input handler
 
 
 def input_handler():
@@ -224,6 +228,8 @@ def normal_day():
         evening()
         day_time = 1
         day += 1
+
+# Scripted Events
 
 
 def jack_goes_hunting():
@@ -428,6 +434,8 @@ def Last_day():
             ending_type = "bad"
             game = False
 
+# Endings
+
 
 def good_ending():
     if day == 9:
@@ -464,6 +472,8 @@ def bad_ending():
         elif day == 19:
             print(
                 "The savages catch up to you and put your head on the double edged stick")
+        else:
+            print("You lost \N{Skull}")
 
 
 if day == 1:
