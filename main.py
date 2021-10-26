@@ -82,7 +82,7 @@ def build():
         input("You and some other boys start bulding a shelter")
         shelter_progress += 1
     elif shelter_progress == 1:
-        input("You continue building shelter.")
+        input("You continue building the shelter.")
         shelter_progress += 1
     elif shelter_progress == 2:
         input("You add the final touches to the shelter.")
