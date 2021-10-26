@@ -70,3 +70,7 @@ Idag har vi gjort klart beastie eventet och påbörjat dem två sista dagarna, v
 **2021-10-21:**
 
 Idag har vi gjort klar jack_goes_hunting och last_day eventet. Vi har second_to_last_day eventet kvar att göra.
+
+**2021-20-24:**
+
+Idag gjorde vi klart spelet.
