@@ -52,7 +52,7 @@ instructions = instructions_normal
 def gather():
     global food
     food += 1
-    input("You went and gathered some fruits from the trees and the bushes")
+    input("You went and gathered some fruit from the trees and the bushes")
 
 
 def hunt():
@@ -150,7 +150,7 @@ def input_handler():
 def morning():
     if day == 1:
         print(f"""
-            You wake up after yesterday's meating. All the boys are standing around you.
+            You wake up after yesterday's meeting. All the boys are standing around you.
             The moment they see that you have woken up, they ask you:
                 What should we do?
 
@@ -161,7 +161,7 @@ def morning():
     else:
         print(f"We have been here for {day} days")
         print(f"""
-            You wake up and ponder to your self. What to do today?
+            You wake up and ponder to yourself, what to do today?
             {instructions}
         """)
     input_handler()
@@ -192,7 +192,7 @@ def evening():
         """)
     elif day < 15:
         print(f"""
-            The boys have started bathing in the pool after a long day.
+            The boys started bathing in the pool after a long day.
             There should be time for one more thing before it gets too dark.
             {instructions}
         
@@ -237,7 +237,7 @@ def normal_day():
 def jack_goes_hunting():
     global day, jack_can_hunt, instructions, day_time
     input(""" 
-        You notice somthing along the horizon. It looks like a boat.\n
+        You notice something along the horizon. It looks like a boat.\n
     """)
 
     input("""
@@ -291,7 +291,7 @@ def day_of_the_splitup():
         input("I had enough of Ralph's incompetent leadership.")
         input("I am starting my own tribe. Who want's to join?")
         input("Almost all of the boys put up their hands.")
-        input("This caches you by surprise and you don't know what to say.")
+        input("This catches you by surprise and you don't know what to say.")
         input("We will have a feast tonight to celebrate the creation of my new tribe")
         input("And for those who had not made up their minds yet.")
         input("You guys can still come to the feast. Everyone is welcome!")
@@ -309,7 +309,7 @@ def day_of_the_splitup():
     choice = input().lower()
     if choice == "yes" or choice == "ys":
         input("You decide to go to the feast")
-        input("When you get there, you see the rest of the boys and the Littleuns sitting around the fire, etaing.")
+        input("When you get there, you see the rest of the boys and the Littleuns sitting around the fire, eating.")
         input("Jack throws you a peace of meat.")
         input("You pick it up and start eating it.")
         input(
@@ -321,7 +321,7 @@ def day_of_the_splitup():
         input("You catch a glimpse of the face of the beast.")
         input("It looks like Simon.")
         input("Suddenly the beast cries out in pain and runs toward the ocean.")
-        input("After that nither the beast nor Simon is ever seen again.")
+        input("After that neither the beast nor Simon is ever seen again.")
     elif choice == "no":
         input("You decide not to go to the feast")
         input("It is getting late so you decide to go to sleep")
@@ -353,7 +353,7 @@ def Second_to_last_day():
         input("After a while the stoning stops and you think this was it.")
         input("But out of nowhere a giant boulder comes rolling towards Piggy.")
         input("Piggy gets hit by the rock and falls into the ocean.")
-        input("Don't know what to do.")
+        input("you begin to panic and you have what to do.")
         input("So you just run away, leaving the twins in the hands of the savages")
         time.sleep(3)
         print()
@@ -372,8 +372,8 @@ def Second_to_last_day():
         input("But they have som bad news for you.")
         input('Jack is planing to hunt you and use a "double edged stick"')
         input("You tell them not to worry and sya good bye")
-        input("You decide that hiding in the tall grass near the hiedout is the best idea")
-        input("You walk there lie down and go to sleep\n")
+        input("You decide that hiding in the tall grass near the hideout is the best idea")
+        input("You walk there, lie down and go to sleep\n")
         day += 1
 
 
@@ -389,7 +389,7 @@ def Last_day():
         if choice == "RUN":
 
             if last_choice == 0:
-                input("You started running an quickly ran past the savages")
+                input("You started running and quickly ran past the savages")
                 input("They started running after you but quickly lost sight of you")
                 input("They have called in reinforcements")
                 print("The savages are closing in again, what will you do this time?")
@@ -416,7 +416,7 @@ def Last_day():
             if last_choice == 2:
                 input("This time you decided that the wiser choice was to hide")
                 input(
-                    "The savages were prepaired for you to run again but were caught off guard when you did not")
+                    "The savages were prepared for you to run again but were caught off guard when you did not")
                 input(
                     "They searched every nook and cranny around the area but did not manage to find you")
                 input(
